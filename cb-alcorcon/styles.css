@@ -1,0 +1,601 @@
+/* ============================================
+   CB ALCORCÓN — Hoja de Estilos
+   Lenguaje de Marcas y Sistemas de Gestión
+   ============================================ */
+
+/* ---------- Variables ---------- */
+:root {
+  --azul:       #003580;
+  --azul-oscuro:#001f4d;
+  --amarillo:   #f5c400;
+  --blanco:     #ffffff;
+  --gris-claro: #f5f5f5;
+  --gris-borde: #dddddd;
+  --gris-texto: #555555;
+  --negro:      #222222;
+}
+
+/* ---------- Reset básico ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; font-size: 16px; color: var(--negro); background: #e8e8e8; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ============================================
+   CONTENEDOR GENERAL
+   ============================================ */
+#contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--blanco);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+header#cabecera {
+  background: var(--azul);
+  color: var(--blanco);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header#cabecera img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  background: var(--blanco);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+header#cabecera h1 {
+  font-size: 1.6rem;
+  color: var(--blanco);
+}
+
+header#cabecera p {
+  font-size: 0.85rem;
+  color: var(--amarillo);
+  margin-top: 2px;
+}
+
+/* ============================================
+   NAVEGACIÓN — menú desplegable CSS puro
+   ============================================ */
+nav {
+  background: var(--azul-oscuro);
+  position: relative;
+  z-index: 100;
+}
+
+/* Lista principal */
+nav > ul {
+  display: flex;
+}
+
+nav > ul > li {
+  position: relative;
+}
+
+nav > ul > li > a {
+  display: block;
+  padding: 13px 16px;
+  color: var(--blanco);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+nav > ul > li > a:hover,
+nav > ul > li > a.activo {
+  background: var(--amarillo);
+  color: var(--azul-oscuro);
+}
+
+/* Flecha submenú */
+nav > ul > li.tiene-submenu > a::after {
+  content: " ▾";
+  font-size: 0.7rem;
+}
+
+/* Submenús — ocultos por defecto, visibles con :hover */
+nav > ul > li > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--azul);
+  min-width: 190px;
+  border-top: 3px solid var(--amarillo);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+nav > ul > li:hover > ul {
+  display: block;
+}
+
+nav > ul > li > ul > li > a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--blanco);
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav > ul > li > ul > li > a:hover {
+  background: var(--amarillo);
+  color: var(--azul-oscuro);
+}
+
+/* ============================================
+   LAYOUT: section + aside
+   ============================================ */
+#contenido {
+  display: flex;
+}
+
+section#principal {
+  flex: 1;
+  padding: 24px;
+  min-width: 0;
+}
+
+aside#lateral {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 24px 16px;
+  background: var(--gris-claro);
+  border-left: 1px solid var(--gris-borde);
+}
+
+/* ============================================
+   ELEMENTOS DENTRO DE SECTION
+   ============================================ */
+
+/* Cabecera de sección */
+section#principal > header {
+  border-bottom: 3px solid var(--amarillo);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+}
+
+section#principal > header h2 {
+  font-size: 1.5rem;
+  color: var(--azul);
+  text-transform: uppercase;
+}
+
+/* Imagen principal (hero) */
+article#hero img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border: 1px solid var(--gris-borde);
+}
+
+article#hero p {
+  background: var(--azul);
+  color: var(--blanco);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+article#hero p span {
+  color: var(--amarillo);
+  font-weight: bold;
+}
+
+/* Texto descriptivo */
+article#descripcion {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+article#descripcion p {
+  color: var(--gris-texto);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+/* Publicaciones */
+article#publicaciones h3 {
+  font-size: 1rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--gris-borde);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+article#publicaciones ul li {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--gris-borde);
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+}
+
+article#publicaciones ul li strong {
+  display: block;
+  color: var(--negro);
+}
+
+/* Footer de sección */
+section#principal > footer {
+  margin-top: 24px;
+  border-top: 1px solid var(--gris-borde);
+  padding-top: 10px;
+  font-size: 0.8rem;
+  color: var(--gris-texto);
+  text-align: center;
+}
+
+/* ============================================
+   ASIDE
+   ============================================ */
+aside#lateral h3 {
+  font-size: 0.95rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--amarillo);
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+}
+
+.noticia-aside {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--gris-borde);
+  font-size: 0.85rem;
+}
+
+.noticia-aside strong {
+  display: block;
+  color: var(--negro);
+  margin-bottom: 2px;
+}
+
+.noticia-aside span {
+  color: var(--gris-texto);
+  font-size: 0.8rem;
+}
+
+.aside-caja {
+  margin-top: 20px;
+  background: var(--azul);
+  color: var(--blanco);
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.aside-caja strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--amarillo);
+  margin-bottom: 6px;
+}
+
+/* ============================================
+   FOOTER GLOBAL
+   ============================================ */
+footer#pie {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 24px;
+}
+
+footer#pie h4 {
+  color: var(--amarillo);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+footer#pie p,
+footer#pie li {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+}
+
+footer#pie a:hover { color: var(--amarillo); }
+
+footer#pie > div { flex: 1 1 180px; }
+
+#copyright {
+  background: #111;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 9px 20px;
+  font-size: 0.88rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-azul { background: var(--azul); color: var(--blanco); }
+.btn-azul:hover { background: var(--amarillo); color: var(--azul-oscuro); }
+
+.btn-amarillo { background: var(--amarillo); color: var(--azul-oscuro); }
+.btn-amarillo:hover { background: var(--azul); color: var(--blanco); }
+
+/* ============================================
+   PÁGINAS INTERIORES
+   ============================================ */
+.interior h2 {
+  font-size: 1.5rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--amarillo);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.interior p {
+  color: var(--gris-texto);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* Quiénes somos: foto + texto */
+.qs-bloque {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.qs-bloque img {
+  width: 280px;
+  height: 200px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--gris-borde);
+}
+
+.qs-bloque .qs-texto { flex: 1 1 250px; }
+
+/* Tabla junta directiva */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+table th {
+  background: var(--azul);
+  color: var(--blanco);
+  padding: 9px 12px;
+  text-align: left;
+}
+
+table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+table tr:nth-child(even) td { background: var(--gris-claro); }
+
+/* Áreas de actuación: grid de tarjetas */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.area-tarjeta {
+  background: var(--gris-claro);
+  border-top: 3px solid var(--azul);
+  padding: 16px;
+}
+
+.area-tarjeta h3 {
+  font-size: 0.95rem;
+  color: var(--azul);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.area-tarjeta p {
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+}
+
+/* Patrocinadores */
+.patrocinadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  padding: 14px;
+  background: var(--gris-claro);
+  border: 1px solid var(--gris-borde);
+  margin-top: 16px;
+}
+
+.patrocinadores img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ============================================
+   FORMULARIO DE CONTACTO
+   ============================================ */
+form.formulario {
+  max-width: 680px;
+}
+
+fieldset {
+  border: 1px solid var(--gris-borde);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--azul);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 0 6px;
+}
+
+.campo {
+  margin-bottom: 12px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--azul-oscuro);
+  margin-bottom: 4px;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo input[type="number"],
+.campo input[type="date"],
+.campo input[type="url"],
+.campo input[type="time"],
+.campo input[type="password"],
+.campo input[type="search"],
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--gris-borde);
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--azul);
+}
+
+.campo textarea { resize: vertical; min-height: 100px; }
+
+.campo input[type="range"] { width: 100%; }
+.campo input[type="color"] { width: 44px; height: 36px; padding: 2px; border: 1px solid var(--gris-borde); }
+.campo input[type="file"] { font-size: 0.85rem; }
+
+.fila-doble {
+  display: flex;
+  gap: 14px;
+}
+
+.fila-doble .campo { flex: 1; }
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 7px;
+}
+
+.check input { width: auto; }
+
+.botones-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ============================================
+   RESPONSIVE — Media Queries
+   ============================================ */
+
+/* Más de 1300px: ancho fijo centrado (ya lo hace max-width:1100px) */
+@media (min-width: 1300px) {
+  #contenedor { max-width: 1300px; }
+}
+
+/* Tablet horizontal: hasta 1024px */
+@media (max-width: 1024px) {
+  aside#lateral { width: 200px; }
+  .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  nav > ul > li > a { padding: 11px 12px; font-size: 0.82rem; }
+}
+
+/* Tablet vertical: hasta 768px */
+@media (max-width: 768px) {
+  header#cabecera { flex-direction: column; text-align: center; }
+
+  nav > ul { flex-wrap: wrap; justify-content: center; }
+  nav > ul > li > a { padding: 10px 10px; font-size: 0.8rem; }
+
+  #contenido { flex-direction: column; }
+
+  aside#lateral {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--gris-borde);
+  }
+
+  .qs-bloque { flex-direction: column; }
+  .qs-bloque img { width: 100%; height: 200px; }
+
+  .fila-doble { flex-direction: column; gap: 0; }
+
+  footer#pie { gap: 16px; }
+}
+
+/* Teléfono horizontal: hasta 600px */
+@media (max-width: 600px) {
+  header#cabecera h1 { font-size: 1.2rem; }
+  header#cabecera img { width: 50px; height: 50px; }
+
+  nav > ul > li > a { padding: 8px 9px; font-size: 0.75rem; }
+
+  section#principal { padding: 14px; }
+  aside#lateral { padding: 14px; }
+
+  .areas-grid { grid-template-columns: 1fr 1fr; }
+
+  article#hero img { height: 180px; }
+}
+
+/* Teléfono vertical: hasta 480px */
+@media (max-width: 480px) {
+  nav > ul { flex-direction: column; }
+  nav > ul > li { width: 100%; }
+  nav > ul > li > a { border-bottom: 1px solid rgba(255,255,255,0.08); text-align: center; }
+
+  nav > ul > li > ul {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-left: 4px solid var(--amarillo);
+  }
+
+  .areas-grid { grid-template-columns: 1fr; }
+
+  article#hero img { height: 150px; }
+
+  footer#pie { flex-direction: column; }
+
+  .botones-form { flex-direction: column; }
+}

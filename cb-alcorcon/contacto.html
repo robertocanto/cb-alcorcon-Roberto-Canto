@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto · CB Alcorcón</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="contenedor">
+
+  <!-- HEADER -->
+  <header id="cabecera">
+    <img src="img/logo.png" alt="Escudo Club Baloncesto Alcorcón" />
+    <div>
+      <h1>Club Baloncesto Alcorcón</h1>
+      <p>Fundado en 1989 · Alcorcón, Madrid</p>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="tiene-submenu">
+        <a href="#">Noticias</a>
+        <ul>
+          <li><a href="#">Primera Equipación</a></li>
+          <li><a href="#">Cantera</a></li>
+          <li><a href="#">Resultados</a></li>
+        </ul>
+      </li>
+      <li><a href="quienes-somos.html">Quiénes somos</a></li>
+      <li class="tiene-submenu">
+        <a href="#">Publicaciones</a>
+        <ul>
+          <li><a href="#">Blog del Club</a></li>
+          <li><a href="#">Comunicados</a></li>
+        </ul>
+      </li>
+      <li><a href="areas-actuacion.html">Áreas de actuación</a></li>
+      <li class="tiene-submenu">
+        <a href="#">Localización</a>
+        <ul>
+          <li><a href="https://goo.gl/maps/UHNisoWnoxjJGp5X6" target="_blank">Polideportivo Los Cantos</a></li>
+          <li><a href="https://goo.gl/maps/GuZ7z8wyZzuqumq19" target="_blank">Polideportivo Canaleja</a></li>
+        </ul>
+      </li>
+      <li><a href="contacto.html" class="activo">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <div id="contenido">
+    <section id="principal">
+
+      <header>
+        <h2>Formulario de contacto</h2>
+      </header>
+
+      <div class="interior">
+        <p>Rellena el formulario y nos pondremos en contacto contigo lo antes posible.
+           Los campos marcados con <strong>*</strong> son obligatorios.</p>
+
+        <!-- =====================================================
+             FORMULARIO — todos los elementos HTML5 de formularios
+             ===================================================== -->
+        <form class="formulario" action="#" method="post" enctype="multipart/form-data" novalidate>
+
+          <!-- 1. DATOS PERSONALES -->
+          <fieldset>
+            <legend>1. Datos personales</legend>
+
+            <div class="fila-doble">
+              <div class="campo">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre"
+                       placeholder="Tu nombre" required minlength="2" maxlength="50"
+                       autocomplete="given-name" />
+              </div>
+              <div class="campo">
+                <label for="apellidos">Apellidos *</label>
+                <input type="text" id="apellidos" name="apellidos"
+                       placeholder="Tus apellidos" required minlength="2" maxlength="80"
+                       autocomplete="family-name" />
+              </div>
+            </div>
+
+            <div class="fila-doble">
+              <div class="campo">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" name="email"
+                       placeholder="ejemplo@correo.com" required autocomplete="email" />
+              </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono"
+                       placeholder="600 000 000" pattern="[6-9][0-9]{8}" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="fila-doble">
+              <div class="campo">
+                <label for="fecha_nac">Fecha de nacimiento</label>
+                <input type="date" id="fecha_nac" name="fecha_nac"
+                       min="1940-01-01" max="2022-12-31" />
+              </div>
+              <div class="campo">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" name="edad"
+                       min="3" max="99" placeholder="Ej: 14" />
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="web">Perfil en redes sociales (opcional)</label>
+              <input type="url" id="web" name="web" placeholder="https://instagram.com/tu_usuario" />
+            </div>
+
+          </fieldset>
+
+          <!-- 2. MOTIVO DEL CONTACTO -->
+          <fieldset>
+            <legend>2. Motivo del contacto</legend>
+
+            <div class="campo">
+              <label for="asunto">Asunto *</label>
+              <select id="asunto" name="asunto" required>
+                <option value="">-- Selecciona un motivo --</option>
+                <option value="inscripcion">Inscripción al club — Temporada 2025-2026</option>
+                <option value="babybasket">Escuela BabyBasket</option>
+                <option value="merchandising">Solicitud de merchandising / equipación</option>
+                <option value="patrocinio">Patrocinio y colaboración</option>
+                <option value="tarjeta">Tarjeta Simpatizante</option>
+                <option value="instalaciones">Información sobre instalaciones</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="categoria">Categoría de interés</label>
+              <input type="text" id="categoria" name="categoria"
+                     list="lista-categorias" placeholder="Escribe o selecciona..." />
+              <datalist id="lista-categorias">
+                <option value="BabyBasket" />
+                <option value="Benjamín" />
+                <option value="Alevín" />
+                <option value="Infantil" />
+                <option value="Cadete" />
+                <option value="Junior" />
+                <option value="U22" />
+                <option value="Senior — 1ª Autonómica Oro" />
+                <option value="Senior Local — Serie A" />
+              </datalist>
+            </div>
+
+            <div class="campo">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" rows="5" required
+                        placeholder="Escribe aquí tu consulta..."></textarea>
+            </div>
+
+          </fieldset>
+
+          <!-- 3. EXPERIENCIA DEPORTIVA -->
+          <fieldset>
+            <legend>3. Experiencia deportiva</legend>
+
+            <div class="campo">
+              <label>¿Has jugado antes en algún club?</label>
+              <div class="check">
+                <input type="radio" id="exp_si"  name="experiencia" value="si" />
+                <label for="exp_si">Sí, tengo experiencia federada</label>
+              </div>
+              <div class="check">
+                <input type="radio" id="exp_no"  name="experiencia" value="no" />
+                <label for="exp_no">No, soy nuevo/a en el baloncesto</label>
+              </div>
+              <div class="check">
+                <input type="radio" id="exp_rec" name="experiencia" value="recreativo" />
+                <label for="exp_rec">Solo a nivel recreativo o escolar</label>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label>¿Qué posición juegas? (puedes marcar varias)</label>
+              <div class="check">
+                <input type="checkbox" id="base"    name="posicion" value="base" />
+                <label for="base">Base</label>
+              </div>
+              <div class="check">
+                <input type="checkbox" id="escolta" name="posicion" value="escolta" />
+                <label for="escolta">Escolta</label>
+              </div>
+              <div class="check">
+                <input type="checkbox" id="alero"   name="posicion" value="alero" />
+                <label for="alero">Alero</label>
+              </div>
+              <div class="check">
+                <input type="checkbox" id="alapiv"  name="posicion" value="alapivot" />
+                <label for="alapiv">Ala-pívot</label>
+              </div>
+              <div class="check">
+                <input type="checkbox" id="pivot"   name="posicion" value="pivot" />
+                <label for="pivot">Pívot</label>
+              </div>
+            </div>
+
+            <div class="fila-doble">
+              <div class="campo">
+                <label for="altura">Altura (cm)</label>
+                <input type="number" id="altura" name="altura"
+                       min="80" max="250" placeholder="Ej: 170" />
+              </div>
+              <div class="campo">
+                <label for="nivel">Nivel (1 = principiante · 10 = avanzado)</label>
+                <input type="range" id="nivel" name="nivel" min="1" max="10" value="5" />
+              </div>
+            </div>
+
+          </fieldset>
+
+          <!-- 4. DATOS ADICIONALES -->
+          <fieldset>
+            <legend>4. Datos adicionales</legend>
+
+            <div class="fila-doble">
+              <div class="campo">
+                <label for="hora_pref">Hora de entrenamiento preferida</label>
+                <input type="time" id="hora_pref" name="hora_pref" min="08:00" max="22:00" />
+              </div>
+              <div class="campo">
+                <label for="password_zona">Contraseña zona privada (si ya eres socio)</label>
+                <input type="password" id="password_zona" name="password_zona"
+                       placeholder="••••••••" autocomplete="current-password" />
+              </div>
+            </div>
+
+            <div class="fila-doble">
+              <div class="campo">
+                <label for="talla">Talla de camiseta</label>
+                <select id="talla" name="talla">
+                  <option value="">-- Selecciona --</option>
+                  <optgroup label="Niño/a">
+                    <option>4 años</option><option>6 años</option>
+                    <option>8 años</option><option>10 años</option>
+                    <option>12 años</option><option>14 años</option>
+                  </optgroup>
+                  <optgroup label="Adulto/a">
+                    <option>XS</option><option>S</option><option>M</option>
+                    <option>L</option><option>XL</option><option>XXL</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="color">Color de camiseta preferido</label>
+                <input type="color" id="color" name="color" value="#003580" />
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="busqueda">Búsqueda de jugador o equipo</label>
+              <input type="search" id="busqueda" name="busqueda" placeholder="Nombre, categoría..." />
+            </div>
+
+            <div class="campo">
+              <label for="foto_doc">Adjuntar documento (JPG / PNG / PDF — máx. 5 MB)</label>
+              <input type="file" id="foto_doc" name="foto_doc" accept=".jpg,.jpeg,.png,.pdf" />
+            </div>
+
+          </fieldset>
+
+          <!-- 5. CONFIRMACIÓN -->
+          <fieldset>
+            <legend>5. Confirmación</legend>
+
+            <div class="check">
+              <input type="checkbox" id="privacidad" name="privacidad" required />
+              <label for="privacidad">
+                He leído y acepto la
+                <a href="https://clubbaloncestoalcorcon.com/politica-privacidad/" target="_blank"
+                   style="color:var(--azul);">Política de Privacidad</a> *
+              </label>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="newsletter" name="newsletter" />
+              <label for="newsletter">Deseo recibir novedades del club por correo electrónico</label>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="imagen" name="imagen" />
+              <label for="imagen">Autorizo el uso de mi imagen en comunicaciones del club</label>
+            </div>
+            <div class="check">
+              <input type="checkbox" id="mayor" name="mayor" />
+              <label for="mayor">Soy mayor de edad o actúo como tutor/a legal del deportista</label>
+            </div>
+
+          </fieldset>
+
+          <!-- BOTONES -->
+          <div class="botones-form">
+            <button type="submit" class="btn btn-amarillo">Enviar formulario</button>
+            <button type="reset"  class="btn btn-azul">Limpiar campos</button>
+          </div>
+
+        </form>
+      </div>
+
+      <footer>
+        <p>© 2025 Club Baloncesto Alcorcón · Todos los derechos reservados</p>
+      </footer>
+
+    </section>
+
+    <!-- ASIDE -->
+    <aside id="lateral">
+      <h3>Cómo contactarnos</h3>
+      <div class="noticia-aside">
+        <strong>Polideportivo Los Cantos</strong>
+        <span>C/ de los Cantos, 28 — 28922 Alcorcón</span>
+      </div>
+      <div class="noticia-aside">
+        <strong>Polideportivo Canaleja</strong>
+        <span>Av. Circunvalación Norte, 1 — Alcorcón</span>
+      </div>
+      <div class="noticia-aside">
+        <strong>Instagram / Twitter</strong>
+        <span>@cbalcorcon</span>
+      </div>
+      <div class="noticia-aside">
+        <strong>Facebook</strong>
+        <span>Club.Baloncesto.Alcorcon</span>
+      </div>
+      <div class="aside-caja">
+        <strong>Respuesta en 24-48h</strong>
+        Atendemos todos los mensajes lo antes posible.
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="pie">
+    <div>
+      <h4>CB Alcorcón</h4>
+      <p>Fundado en 1989 · Reg. CAM nº 2031<br />Formamos y educamos desde<br />el deporte que más nos gusta,<br />el baloncesto.</p>
+    </div>
+    <div>
+      <h4>Páginas</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="areas-actuacion.html">Áreas de actuación</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Instalaciones</h4>
+      <p>📍 Polideportivo Los Cantos<br />C/ de los Cantos, 28 — 28922<br /><br />
+         📍 Polideportivo Canaleja<br />Av. Circunvalación Norte, 1</p>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/Club.Baloncesto.Alcorcon" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/cbalcorcon/" target="_blank">Instagram — @cbalcorcon</a></li>
+        <li><a href="https://twitter.com/cbalcorcon" target="_blank">Twitter — @cbalcorcon</a></li>
+        <li><a href="https://www.youtube.com/c/ClubBaloncestoAlcorcón" target="_blank">YouTube</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div id="copyright">© 2025 Club Baloncesto Alcorcón · Diseño web corporativo</div>
+
+</div>
+</body>
+</html>
